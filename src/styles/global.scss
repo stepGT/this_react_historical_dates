@@ -1,4 +1,4 @@
-@import './variables';
+@use 'variables' as vars;
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=Bebas+Neue&display=swap');
 
 * {
@@ -8,9 +8,9 @@
 }
 
 body {
-  font-family: $font-main;
-  background-color: $background;
-  color: $dark-grey;
+  font-family: vars.$font-main;
+  background-color: vars.$background;
+  color: vars.$dark-grey;
   overflow-x: hidden;
 }
 
@@ -24,12 +24,12 @@ body {
   position: relative;
   width: 100%;
   min-height: 100vh;
-  background-color: $white;
-  border-left: 1px solid rgba($light-grey, 0.5);
-  border-right: 1px solid rgba($light-grey, 0.5);
+  background-color: vars.$white;
+  border-left: 1px solid rgba(vars.$light-grey, 0.5);
+  border-right: 1px solid rgba(vars.$light-grey, 0.5);
   overflow: hidden;
 
-  @media (max-width: $breakpoint-mobile) {
+  @media (max-width: vars.$breakpoint-mobile) {
     border: none;
   }
 }

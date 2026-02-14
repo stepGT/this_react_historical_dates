@@ -1,4 +1,4 @@
-@import './variables';
+@use 'variables' as vars;
 
 .title-block {
   position: relative;
@@ -8,7 +8,7 @@
     font-size: 56px;
     font-weight: 700;
     line-height: 1.2;
-    color: $dark-grey;
+    color: vars.$dark-grey;
     max-width: 500px;
     position: relative;
 
@@ -19,11 +19,11 @@
       top: 0;
       width: 5px;
       height: 100%;
-      background: linear-gradient(180deg, $light-blue 0%, $accent-color 100%);
+      background: linear-gradient(180deg, vars.$light-blue 0%, vars.$accent-color 100%);
     }
   }
 
-  @media (max-width: $breakpoint-tablet) {
+  @media (max-width: vars.$breakpoint-tablet) {
     padding: 40px 0 30px 40px;
 
     &__title {
@@ -35,7 +35,7 @@
     }
   }
 
-  @media (max-width: $breakpoint-mobile) {
+  @media (max-width: vars.$breakpoint-mobile) {
     padding: 20px 0 20px 20px;
 
     &__title {
