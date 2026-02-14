@@ -1,0 +1,50 @@
+@import './variables';
+
+.title-block {
+  position: relative;
+  padding: 60px 0 40px 80px;
+
+  &__title {
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: $dark-grey;
+    max-width: 500px;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: -80px;
+      top: 0;
+      width: 5px;
+      height: 100%;
+      background: linear-gradient(180deg, $light-blue 0%, $accent-color 100%);
+    }
+  }
+
+  @media (max-width: $breakpoint-tablet) {
+    padding: 40px 0 30px 40px;
+
+    &__title {
+      font-size: 42px;
+
+      &::before {
+        left: -40px;
+      }
+    }
+  }
+
+  @media (max-width: $breakpoint-mobile) {
+    padding: 20px 0 20px 20px;
+
+    &__title {
+      font-size: 28px;
+
+      &::before {
+        left: -20px;
+        width: 3px;
+      }
+    }
+  }
+}
