@@ -1,0 +1,35 @@
+@import './variables';
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=Bebas+Neue&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-main;
+  background-color: $background;
+  color: $dark-grey;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.historical-dates {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-color: $white;
+  border-left: 1px solid rgba($light-grey, 0.5);
+  border-right: 1px solid rgba($light-grey, 0.5);
+  overflow: hidden;
+
+  @media (max-width: $breakpoint-mobile) {
+    border: none;
+  }
+}
