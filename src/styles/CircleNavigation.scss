@@ -1,0 +1,72 @@
+@use 'variables' as vars;
+
+.circle-navigation {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 0;
+
+  &__container {
+    position: relative;
+    width: 530px;
+    height: 530px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media (max-width: vars.$breakpoint-tablet) {
+      width: 400px;
+      height: 400px;
+    }
+
+    @media (max-width: vars.$breakpoint-mobile) {
+      width: 300px;
+      height: 300px;
+    }
+  }
+
+  &__circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgba(vars.$light-grey, 0.5);
+    border-radius: 50%;
+  }
+
+  &__years {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 60px;
+    font-size: 200px;
+    font-weight: 700;
+    line-height: 1;
+    z-index: 10;
+    font-family: vars.$font-secondary;
+
+    @media (max-width: vars.$breakpoint-tablet) {
+      font-size: 80px;
+      gap: 40px;
+    }
+
+    @media (max-width: vars.$breakpoint-mobile) {
+      font-size: 56px;
+      gap: 20px;
+    }
+  }
+
+  &__year {
+    &--start {
+      color: vars.$light-blue;
+    }
+
+    &--end {
+      color: vars.$accent-color;
+    }
+  }
+}
