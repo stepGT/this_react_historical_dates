@@ -1,9 +1,10 @@
 import React from 'react';
+import HistoricalDates from './components/HistoricalDates';
 //
 const App: React.FC = () => {
   return (
-    <div>
-      <h1>React + TypeScript + Webpack</h1>
+    <div className="App">
+      <HistoricalDates />
     </div>
   );
 };
