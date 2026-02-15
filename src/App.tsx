@@ -6,7 +6,7 @@ const { periods } = mockData;
 const App: React.FC = () => {
   return (
     <div className="App">
-      <HistoricalDates />
+      <HistoricalDates periods={periods} />
     </div>
   );
 };
