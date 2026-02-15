@@ -36,6 +36,36 @@
     border-radius: 50%;
   }
 
+  &__point {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    background-color: vars.$dark-grey;
+    border: 1px solid transparent;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 5;
+  }
+
+  &__point-label {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    font-size: 20px;
+    font-weight: 700;
+    color: vars.$dark-grey;
+    white-space: nowrap;
+
+    @media (max-width: vars.$breakpoint-mobile) {
+      display: none !important;
+    }
+  }
+
   &__years {
     position: absolute;
     top: 50%;
