@@ -71,10 +71,6 @@
     font-weight: 700;
     color: vars.$dark-grey;
     white-space: nowrap;
-
-    @media (max-width: vars.$breakpoint-mobile) {
-      display: none !important;
-    }
   }
 
   &__years {
@@ -108,6 +104,45 @@
 
     &--end {
       color: vars.$accent-color;
+    }
+  }
+
+  &__controls {
+    position: absolute;
+    bottom: -60px;
+    left: 0;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    @media (max-width: vars.$breakpoint-mobile) {
+      bottom: -40px;
+    }
+  }
+
+  &__pagination {
+    font-size: 14px;
+    color: vars.$dark-grey;
+    margin-right: 10px;
+  }
+
+  &__button {
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(vars.$dark-grey, 0.3);
+    border-radius: 50%;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media (max-width: vars.$breakpoint-mobile) {
+      width: 30px;
+      height: 30px;
+      font-size: 14px;
     }
   }
 }

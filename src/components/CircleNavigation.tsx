@@ -51,6 +51,16 @@ const CircleNavigation: React.FC<CircleNavigationProps> = ({
       },
     });
   };
+  const handlePrev = () => {
+    const newIndex = activeID === 0 ? periods.length - 1 : activeID - 1;
+    rotateContainer(newIndex);
+    onPeriodChange(newIndex);
+  };
+  const handleNext = () => {
+    const newIndex = activeID === periods.length - 1 ? 0 : activeID + 1;
+    rotateContainer(newIndex);
+    onPeriodChange(newIndex);
+  };
   //
   useEffect(() => {
     if (containerRef.current && periods.length >= 2 && periods.length <= 6) {
@@ -109,6 +119,21 @@ const CircleNavigation: React.FC<CircleNavigationProps> = ({
         <span className="circle-navigation__year circle-navigation__year--end">
           {periods[activeID].endYear}
         </span>
+      </div>
+
+      <div className="circle-navigation__controls">
+        <span className="circle-navigation__pagination">
+          {String(activeID + 1).padStart(2, '0')}/{String(periods.length).padStart(2, '0')}
+        </span>
+        <button
+          className="circle-navigation__button"
+          onClick={handlePrev}
+          aria-label="Previous period">
+          &larr;
+        </button>
+        <button className="circle-navigation__button" onClick={handleNext} aria-label="Next period">
+          &rarr;
+        </button>
       </div>
     </div>
   );
