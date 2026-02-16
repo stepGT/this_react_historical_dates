@@ -1,10 +1,64 @@
 {
   "periods": [
-    { "id": 1, "startYear": 1991, "endYear": 1996 },
-    { "id": 2, "startYear": 1997, "endYear": 2002 },
-    { "id": 3, "startYear": 2003, "endYear": 2008 },
-    { "id": 4, "startYear": 2009, "endYear": 2014 },
-    { "id": 5, "startYear": 2015, "endYear": 2020 },
-    { "id": 6, "startYear": 2021, "endYear": 2026 }
+    {
+      "id": 1,
+      "startYear": 1991,
+      "endYear": 1996,
+      "events": [
+        { "year": 1991, "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit." },
+        { "year": 1992, "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit." },
+        { "year": 1993, "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit." }
+      ]
+    },
+    {
+      "id": 2,
+      "startYear": 1997,
+      "endYear": 2002,
+      "events": [
+        { "year": 1997, "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit." },
+        { "year": 1998, "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit." },
+        { "year": 1999, "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit." }
+      ]
+    },
+    {
+      "id": 3,
+      "startYear": 2003,
+      "endYear": 2008,
+      "events": [
+        { "year": 2003, "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit." },
+        { "year": 2004, "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit." },
+        { "year": 2005, "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit." }
+      ]
+    },
+    {
+      "id": 4,
+      "startYear": 2009,
+      "endYear": 2014,
+      "events": [
+        { "year": 2009, "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit." },
+        { "year": 2010, "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit." },
+        { "year": 2011, "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit." }
+      ]
+    },
+    {
+      "id": 5,
+      "startYear": 2015,
+      "endYear": 2020,
+      "events": [
+        { "year": 2015, "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit." },
+        { "year": 2016, "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit." },
+        { "year": 2017, "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit." }
+      ]
+    },
+    {
+      "id": 6,
+      "startYear": 2021,
+      "endYear": 2026,
+      "events": [
+        { "year": 2021, "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit." },
+        { "year": 2022, "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit." },
+        { "year": 2023, "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit." }
+      ]
+    }
   ]
 }
