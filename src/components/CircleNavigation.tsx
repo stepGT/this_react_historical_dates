@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import '../styles/CircleNavigation.scss';
 import { CircleNavigationProps } from '../types';
 import { gsap } from 'gsap';
@@ -10,8 +10,46 @@ const CircleNavigation: React.FC<CircleNavigationProps> = ({
 }) => {
   const pointsRef = useRef<(HTMLDivElement | null)[]>([]);
   const containerRef = useRef<HTMLDivElement>(null);
+  const rotationRef = useRef<GSAPTween | null>(null);
+  const circleRef = useRef<HTMLDivElement>(null);
+  const labelsRef = useRef<(HTMLSpanElement | null)[]>([]);
+  const [currentRotation, setCurrentRotation] = useState(0);
+  const INITIAL_OFFSET = -90;
+  //
   const handlePointClick = (idx: number) => {
+    rotateContainer(idx);
     onPeriodChange(idx);
+  };
+  const rotateContainer = (idx: number) => {
+    const currentAngle = currentRotation;
+    const angleStep = 360 / periods.length;
+    const targetAngle = INITIAL_OFFSET - idx * angleStep;
+
+    let delta = targetAngle - currentAngle;
+    if (delta > 180) delta -= 360;
+    if (delta < -180) delta += 360;
+
+    if (rotationRef.current) {
+      rotationRef.current.kill();
+    }
+
+    rotationRef.current = gsap.to(containerRef.current, {
+      rotation: currentAngle + delta,
+      duration: 1,
+      ease: 'power2.inOut',
+      onUpdate: function () {
+        const progress = this.progress();
+        const newRotation = currentAngle + delta * progress;
+        setCurrentRotation(newRotation);
+
+        labelsRef.current.forEach((label) => {
+          label.style.transform = `translateY(-50%) rotate(${-newRotation}deg)`;
+        });
+      },
+      onComplete: () => {
+        setCurrentRotation(targetAngle);
+      },
+    });
   };
   //
   useEffect(() => {
@@ -38,7 +76,7 @@ const CircleNavigation: React.FC<CircleNavigationProps> = ({
   return (
     <div className="circle-navigation">
       <div className="circle-navigation__container" ref={containerRef}>
-        <div className="circle-navigation__circle" />
+        <div className="circle-navigation__circle" ref={circleRef} />
         {periods.map((prd, idx) => (
           <div
             className={`circle-navigation__point ${
@@ -50,6 +88,9 @@ const CircleNavigation: React.FC<CircleNavigationProps> = ({
             key={prd.id}
             onClick={() => handlePointClick(idx)}>
             <span
+              ref={(el) => {
+                labelsRef.current[idx] = el;
+              }}
               className="circle-navigation__point-label"
               onClick={(e) => {
                 e.stopPropagation();
@@ -63,10 +104,10 @@ const CircleNavigation: React.FC<CircleNavigationProps> = ({
 
       <div className="circle-navigation__years">
         <span className="circle-navigation__year circle-navigation__year--start">
-          {periods[0].startYear}
+          {periods[activeID].startYear}
         </span>
         <span className="circle-navigation__year circle-navigation__year--end">
-          {periods[0].endYear}
+          {periods[activeID].endYear}
         </span>
       </div>
     </div>
