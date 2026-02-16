@@ -30,5 +30,5 @@ cd this_react_historical_dates
 npm install
 npm start
 
-![Alt text](screenshot.png)
 ```
+![Alt text](screenshot.png)
