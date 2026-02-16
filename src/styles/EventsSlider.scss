@@ -1,0 +1,123 @@
+@use 'variables' as vars;
+
+.events-slider {
+  position: relative;
+  padding: 60px 0;
+  margin-top: 80px;
+  border-top: 1px solid rgba(vars.$light-grey, 0.5);
+
+  @media (max-width: vars.$breakpoint-mobile) {
+    padding: 30px 0;
+    margin-top: 60px;
+  }
+
+  &__container {
+    position: relative;
+    padding: 0 60px;
+
+    @media (max-width: vars.$breakpoint-tablet) {
+      padding: 0 40px;
+    }
+
+    @media (max-width: vars.$breakpoint-mobile) {
+      padding: 0 20px;
+    }
+  }
+
+  &__title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: vars.$dark-grey;
+
+    @media (max-width: vars.$breakpoint-mobile) {
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+  }
+
+  .swiper-slide {
+    height: auto;
+  }
+
+  &__card {
+    padding: 20px;
+    background: vars.$white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+    }
+  }
+
+  &__year {
+    font-size: 20px;
+    font-weight: 700;
+    color: vars.$light-blue;
+    margin-bottom: 12px;
+  }
+
+  &__description {
+    font-size: 16px;
+    line-height: 1.5;
+    color: vars.$dark-grey;
+
+    @media (max-width: vars.$breakpoint-mobile) {
+      font-size: 14px;
+    }
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    width: 40px;
+    height: 40px;
+    background-color: vars.$white;
+    border: 1px solid rgba(vars.$dark-grey, 0.1);
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+    &::after {
+      font-size: 16px;
+      color: vars.$dark-grey;
+    }
+
+    &:hover {
+      background-color: vars.$white;
+      border-color: vars.$dark-grey;
+    }
+
+    @media (max-width: vars.$breakpoint-mobile) {
+      display: none;
+    }
+  }
+
+  .swiper-button-prev {
+    left: 0;
+  }
+
+  .swiper-button-next {
+    right: 0;
+  }
+
+  .swiper-pagination {
+    position: relative;
+    margin-top: 30px;
+
+    @media (min-width: vars.$breakpoint-mobile) {
+      display: none;
+    }
+  }
+
+  .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    background-color: vars.$light-grey;
+    opacity: 1;
+
+    &-active {
+      background-color: vars.$dark-grey;
+    }
+  }
+}
