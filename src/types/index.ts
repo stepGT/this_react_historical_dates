@@ -3,6 +3,7 @@ export interface TimePeriod {
   startYear: number;
   endYear: number;
   events: Event[];
+  title: string;
 }
 
 export interface HistoricalDatesProps {

@@ -13,6 +13,7 @@ const CircleNavigation: React.FC<CircleNavigationProps> = ({
   const rotationRef = useRef<GSAPTween | null>(null);
   const circleRef = useRef<HTMLDivElement>(null);
   const labelsRef = useRef<(HTMLSpanElement | null)[]>([]);
+  const titlesRef = useRef<(HTMLSpanElement | null)[]>([]);
   const [currentRotation, setCurrentRotation] = useState(0);
   const INITIAL_OFFSET = -90;
   //
@@ -44,6 +45,11 @@ const CircleNavigation: React.FC<CircleNavigationProps> = ({
 
         labelsRef.current.forEach((label) => {
           label.style.transform = `translateY(-50%) rotate(${-newRotation}deg)`;
+        });
+        titlesRef.current.forEach((title) => {
+          if (title) {
+            title.style.transform = `translateY(-50%) rotate(${-newRotation}deg)`;
+          }
         });
       },
       onComplete: () => {
@@ -124,6 +130,10 @@ const CircleNavigation: React.FC<CircleNavigationProps> = ({
             </span>
           </div>
         ))}
+      </div>
+
+      <div className="circle-navigation__active-info">
+        <span className="circle-navigation__active-title">{periods[activeID].title}</span>
       </div>
 
       <div className="circle-navigation__years">

@@ -74,6 +74,40 @@
     white-space: nowrap;
   }
 
+  &__active-info {
+    position: absolute;
+    top: 0;
+    right: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+    z-index: 30;
+    pointer-events: none;
+
+    @media (max-width: vars.$breakpoint-tablet) {
+      top: 0;
+      right: 20%;
+    }
+
+    @media (max-width: vars.$breakpoint-mobile) {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+
+  &__active-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #42567a;
+    line-height: 1.2;
+
+    @media (max-width: vars.$breakpoint-tablet) {
+      font-size: 20px;
+    }
+  }
+
   &__years {
     position: absolute;
     top: 50%;
