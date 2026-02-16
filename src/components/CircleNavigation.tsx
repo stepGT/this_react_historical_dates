@@ -3,9 +3,16 @@ import '../styles/CircleNavigation.scss';
 import { CircleNavigationProps } from '../types';
 import { gsap } from 'gsap';
 
-const CircleNavigation: React.FC<CircleNavigationProps> = ({ periods }) => {
+const CircleNavigation: React.FC<CircleNavigationProps> = ({
+  periods,
+  activeID,
+  onPeriodChange,
+}) => {
   const pointsRef = useRef<(HTMLDivElement | null)[]>([]);
   const containerRef = useRef<HTMLDivElement>(null);
+  const handlePointClick = (idx: number) => {
+    onPeriodChange(idx);
+  };
   //
   useEffect(() => {
     if (containerRef.current && periods.length >= 2 && periods.length <= 6) {
@@ -34,19 +41,21 @@ const CircleNavigation: React.FC<CircleNavigationProps> = ({ periods }) => {
         <div className="circle-navigation__circle" />
         {periods.map((prd, idx) => (
           <div
-            className="circle-navigation__point"
+            className={`circle-navigation__point ${
+              idx === activeID ? 'circle-navigation__point--active' : ''
+            }`}
             ref={(el) => {
               pointsRef.current[idx] = el;
             }}
             key={prd.id}
-            onClick={() => {}}>
+            onClick={() => handlePointClick(idx)}>
             <span
               className="circle-navigation__point-label"
               onClick={(e) => {
                 e.stopPropagation();
               }}
               style={{}}>
-              { prd.id }
+              {activeID + 1}
             </span>
           </div>
         ))}

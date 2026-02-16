@@ -10,4 +10,6 @@ export interface HistoricalDatesProps {
 
 export interface CircleNavigationProps {
   periods: TimePeriod[];
+  activeID: number;
+  onPeriodChange: (index: number) => void;
 }

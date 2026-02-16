@@ -48,6 +48,17 @@
     cursor: pointer;
     transition: all 0.3s ease;
     z-index: 5;
+
+    &--active {
+      width: 56px;
+      height: 56px;
+      background-color: vars.$white;
+      border: 1px solid rgba(vars.$dark-grey, 0.2);
+
+      .circle-navigation__point-label {
+        display: block;
+      }
+    }
   }
 
   &__point-label {
