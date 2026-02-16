@@ -117,9 +117,10 @@ const CircleNavigation: React.FC<CircleNavigationProps> = ({
               className="circle-navigation__point-label"
               onClick={(e) => {
                 e.stopPropagation();
+                handlePointClick(idx);
               }}
               style={{}}>
-              {activeID + 1}
+              {idx + 1}
             </span>
           </div>
         ))}
