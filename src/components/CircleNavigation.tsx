@@ -80,6 +80,19 @@ const CircleNavigation: React.FC<CircleNavigationProps> = ({
           yPercent: -50,
         });
       });
+
+      const initialRotation = INITIAL_OFFSET - activeID * (360 / periods.length);
+
+      gsap.set(containerRef.current, {
+        rotation: initialRotation,
+      });
+      setCurrentRotation(initialRotation);
+
+      labelsRef.current.forEach((label) => {
+        if (label) {
+          label.style.transform = `translateY(-50%) rotate(${-initialRotation}deg)`;
+        }
+      });
     }
   }, [periods.length]);
   //
