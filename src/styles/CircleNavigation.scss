@@ -14,6 +14,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 1;
 
     @media (max-width: vars.$breakpoint-tablet) {
       width: 400px;
@@ -118,7 +119,6 @@
     font-size: 200px;
     font-weight: 700;
     line-height: 1;
-    z-index: 10;
     font-family: vars.$font-secondary;
 
     @media (max-width: vars.$breakpoint-tablet) {
