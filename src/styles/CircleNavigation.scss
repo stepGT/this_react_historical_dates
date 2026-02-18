@@ -149,6 +149,7 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    z-index: 2;
 
     @media (max-width: vars.$breakpoint-mobile) {
       bottom: -40px;
@@ -158,7 +159,6 @@
   &__pagination {
     font-size: 14px;
     color: vars.$dark-grey;
-    margin-right: 10px;
   }
 
   &__button {
